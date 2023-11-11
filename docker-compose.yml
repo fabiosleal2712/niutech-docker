@@ -16,7 +16,7 @@ services:
   dotnet:
     container_name: dotnet
     build:
-      context: ./.niutech  # Caminho para o diretório que contém o Dockerfile
+      context: ./.niutech  # Caminho para o diretório que contém o Dockerfile1
       dockerfile: dockerfile-build  # Nome do Dockerfile, assumindo que está na pasta niutech
     ports:
       - "5001:8080"
