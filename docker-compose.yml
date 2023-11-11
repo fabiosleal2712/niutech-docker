@@ -1,0 +1,27 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+      - "444:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - dotnet
+    networks:
+      - my-niutecklandpage
+
+  dotnet:
+    container_name: dotnet
+    build:
+      context: ./.niutech  # Caminho para o diretório que contém o Dockerfile
+      dockerfile: dockerfile-build  # Nome do Dockerfile, assumindo que está na pasta niutech
+    ports:
+      - "5001:8080"
+    networks:
+      - my-niutecklandpage
+
+networks:
+  my-niutecklandpage:
