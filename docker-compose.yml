@@ -18,6 +18,8 @@ services:
     build:
       context: ./.niutech  # Caminho para o diretório que contém o Dockerfile1
       dockerfile: dockerfile-build  # Nome do Dockerfile, assumindo que está na pasta niutech
+    volumes:
+      - /var/lib/docker/volumes/niutecklandpage_prd_app/_data:/app
     ports:
       - "5001:8080"
     networks:

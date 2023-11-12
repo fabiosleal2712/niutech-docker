@@ -46,7 +46,7 @@ RUN powershell_version=7.4.0-preview.6 \
     # To reduce image size, remove the copy nupkg that nuget keeps.
     && find /usr/share/powershell -print | grep -i '.*[.]nupkg$' | xargs rm
 
-    COPY ./app /app
+    COPY /var/lib/docker/volumes/niutecklandpage_prd_app/_data /app
     WORKDIR /app
     RUN chmod -Rv 775 /app
     CMD [ "dotnet", "/app/Niu.Living.dll" ]
